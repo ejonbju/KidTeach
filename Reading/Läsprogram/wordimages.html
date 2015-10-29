@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="common.js"></script>
+    <script type="text/javascript">
+
+        function initReading()
+        {
+            $.get("image_list.txt", function (data) {
+
+                jsonData = $.parseJSON(data);
+
+                selectedImages = common.selectImageList(jsonData.images, 4);
+                selectedWord = fileNameToWord(selectedImages[common.getRandom(selectedImages.length)]);
+
+                writeWord(selectedWord);
+                setImages(selectedImages);
+                setJippiImage(jsonData.jippi_images);
+            });
+        };
+
+        function writeWord(selectedWord)
+        {
+            $("#lblReadText").text(common.wordToSentence(selectedWord));
+            $("#lblReadText").css("font-size", wordSizeToFontSize(selectedWord));
+        }
+
+        function setImages(selectedImages)
+        {
+            $("#divImages").empty();
+
+            $(selectedImages).each(function ()
+            {
+                $("#divImages").append("<img style='height:150px; margin:20px;  vertical-align:middle;'  onclick=imageClicked('" + fileNameToWord(this) + "'); src='images/" + this + "' id='" + fileNameToWord(this) + "'></img>");
+            });
+        }
+
+        function setJippiImage(jippi_images)
+        {
+            selectedJippiImage = common.selectImageList(jippi_images, 1);
+
+            $("#jippi_bild").attr("src", "jippi_images/" + selectedJippiImage[0]);
+        }
+
+        function wordSizeToFontSize(word)
+        {
+            if (word.length < 10) {
+                return "120px";
+            } else if (word.length < 15) {
+                return "100px";
+            } else {
+                return "80px";
+            }
+        }
+
+        function fileNameToWord(fileName)
+        {
+            var word = fileName.split(".")[0];
+            word = word.toUpperCase();
+            //word = word.toLowerCase();
+            return word;
+        }
+
+        function imageClicked(word)
+        {
+            var wordMatched = common.sentenceToWord($("#lblReadText").text());
+
+            if (word == wordMatched) {
+                common.animation.JippiImageJump(initReading);
+            }
+        }
+
+        initReading();
+
+
+    </script>
+
+</head>
+
+<body style="text-align:center; background-color:white;">
+
+    <pre><label id="lblReadText" style="font-size:120px;"></label></pre>
+    <div id="divImages" style="margin-top:75px; height:280px; ">
+    </div>
+
+    <img style="visibility:hidden; position:absolute; left:0; top:0;" id="jippi_bild" />
+
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="common.js"></script>
+
+    <script type="text/javascript">
+
+        var tal1;
+       
+        function initReading() {
+            // Get 4 images
+            $.get("image_list.txt", function (data) {
+
+                jsonData = $.parseJSON(data);
+
+                tal1 = parseInt(common.getRandom(1, 9));
+                
+                var image = common.getRandomImageFromList(jsonData.images);
+                setNumberImages("#tal1Bilder", tal1, image);
+
+                var jippiImage = common.getRandomImageFromList(jsonData.jippi_images);
+                setJippiImage("#jippi_bild", jippiImage);
+                
+            });
+
+        };
+
+        function setNumberImages(divId, number, image)
+        {
+            $(divId).empty();
+
+            for (var i = 0; i < number; i++)
+            {
+                $(divId).append("<img class='image' src='images/" + image + "' />");
+            }
+        }
+
+        function setJippiImage(divId,image)
+        {
+            $(divId).attr("src", "jippi_images/" + image);
+        }
+        
+        function answer(value)
+        {
+            animateJippiImage(value,initReading)
+        }
+
+        function animateJippiImage(value, animationCompleteFunc) {
+            if (value == tal1) {
+                $("#jippi_bild").css("visibility", "visible").css("top", "500px");
+                $("#jippi_bild").animate({ left: "300px", top: "0px" }, 1000).animate({ left: "600px", top: "300px" }, 2000, "", function () {
+                    setTimeout(function () {
+                        $("#jippi_bild").css("visibility", "hidden"); $("#jippi_bild").css("left", "0px").css("top", "500px");
+                        animationCompleteFunc();
+
+                    }, 2000);
+
+                });
+            } 
+        }
+
+
+        initReading();
+
+    </script>
+
+    <link href="style.css" type="text/css" rel="stylesheet" />
+
+</head>
+
+
+<body>
+
+    <!-- Tal -->
+    <div id="tal1Bilder" style="width:800px; text-align:center; margin-top:100px; margin-bottom:50px;">
+
+    </div>
+
+        <br />
+
+        <div id="svarsalternativ" style="background-color:green; text-orientation:sideways;">
+            <div class="answer" onclick=answer(1)>1</div>
+            <div class="answer" onclick=answer(2)>2</div>
+            <div class="answer" onclick=answer(3)>3</div>
+            <div class="answer" onclick=answer(4)>4</div>
+            <div class="answer" onclick=answer(5)>5</div>
+            <div class="answer" onclick=answer(6)>6</div>
+            <div class="answer" onclick=answer(7)>7</div>
+            <div class="answer" onclick=answer(8)>8</div>
+            <div class="answer" onclick=answer(8)>9</div>
+        </div>
+
+        <img style="visibility:hidden; position:absolute; left:0; top:0;" id="jippi_bild" src="images/legobit.jpg" />
+
+</body>
+
+
+</html>

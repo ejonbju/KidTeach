@@ -1,0 +1,6 @@
+C:\Users\emmel_000\Documents\Lärande\Matteprogram\Matteprogram\bin\Matteprogram.dll.config
+C:\Users\emmel_000\Documents\Lärande\Matteprogram\Matteprogram\bin\Matteprogram.dll
+C:\Users\emmel_000\Documents\Lärande\Matteprogram\Matteprogram\bin\Matteprogram.pdb
+C:\Users\emmel_000\Documents\Lärande\Matteprogram\Matteprogram\obj\Debug\Matteprogram.csprojResolveAssemblyReference.cache
+C:\Users\emmel_000\Documents\Lärande\Matteprogram\Matteprogram\obj\Debug\Matteprogram.dll
+C:\Users\emmel_000\Documents\Lärande\Matteprogram\Matteprogram\obj\Debug\Matteprogram.pdb
