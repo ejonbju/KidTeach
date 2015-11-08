@@ -1,6 +1,0 @@
-C:\Users\emmel_000\Documents\Lärande\Läsaprogram\Läsprogram\bin\Läsprogram.dll.config
-C:\Users\emmel_000\Documents\Lärande\Läsaprogram\Läsprogram\bin\Läsprogram.dll
-C:\Users\emmel_000\Documents\Lärande\Läsaprogram\Läsprogram\bin\Läsprogram.pdb
-C:\Users\emmel_000\Documents\Lärande\Läsaprogram\Läsprogram\obj\Release\Läsprogram.csprojResolveAssemblyReference.cache
-C:\Users\emmel_000\Documents\Lärande\Läsaprogram\Läsprogram\obj\Release\Läsprogram.dll
-C:\Users\emmel_000\Documents\Lärande\Läsaprogram\Läsprogram\obj\Release\Läsprogram.pdb

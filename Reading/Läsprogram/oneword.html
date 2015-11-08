@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Show one single text and its matching image</title>
+
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="common.js"></script>
+    <script type="text/javascript">
+
+        var stateEnum = {
+            IMAGE_HIDDEN: 1,
+            IMAGE_VISIBLE: 2,
+        };
+
+        var state;
+
+        function clicked()
+        {
+            switch( state)
+            {
+                case stateEnum.IMAGE_HIDDEN:
+                    state = stateEnum.IMAGE_VISIBLE;
+                    $("#image").css("visibility", "visible");
+                    break;
+                case stateEnum.IMAGE_VISIBLE:
+                    state = stateEnum.IMAGE_HIDDEN;
+                    initReading();
+                    break;        
+            }
+        }
+
+        function initReading() {
+
+            $.get("image_list.txt", function (data) {
+
+                jsonData = $.parseJSON(data);
+
+                selectedImages = common.selectImageList(jsonData.images, 1);
+                selectedImage = selectedImages[0];
+
+                selectedWord = common.fileNameToWord(selectedImage);
+
+                setImage(selectedImage);
+                writeWord(selectedWord);
+                
+            });
+        };
+
+        function writeWord(selectedWord) {
+            $("#lblReadText").text(common.wordToSentence(selectedWord));
+            $("#lblReadText").css("font-size", wordSizeToFontSize(selectedWord));
+        }
+
+        function setImage(selectedImage) {
+            $("#image").css("visibility", "hidden");
+            $("#image").attr("src", "images/" + selectedImage);
+        }
+
+        function wordSizeToFontSize(word) {
+            if (word.length < 10) {
+                return "120px";
+            } else if (word.length < 15) {
+                return "100px";
+            } else {
+                return "80px";
+            }
+        }
+
+        state = stateEnum.IMAGE_HIDDEN;
+        initReading();
+
+
+    </script>
+
+
+</head>
+
+<body style="text-align:center; background-color:white;" onclick="clicked();">
+
+    <pre><label id="lblReadText" style="font-size:120px;" ></label></pre>
+
+
+    <img id="image" style="margin-top:75px; height:350px;" />
+
+    
+</body>
+
+
+</html>

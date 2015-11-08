@@ -32,6 +32,15 @@
         return sentence.split("  ").join("_");
     },
 
+    fileNameToWord : function(fileName)
+    {
+        var word = fileName.split(".")[0];
+        word = word.toUpperCase();
+        //word = word.toLowerCase();
+        return word;
+    },
+
+
 
     animation : {
 
