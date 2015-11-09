@@ -20,12 +20,27 @@
             {
                 case stateEnum.IMAGE_HIDDEN:
                     state = stateEnum.IMAGE_VISIBLE;
-                    $("#image").css("visibility", "visible");
+                    animate();
                     break;
                 case stateEnum.IMAGE_VISIBLE:
                     state = stateEnum.IMAGE_HIDDEN;
                     initReading();
                     break;        
+            }
+        }
+
+        function animate()
+        {
+            var i = common.getRandom(2);
+
+            switch (i) {
+                case 0:
+                    common.animation.ImageFromLeft("#image", "500px", function () { });
+                    break;
+                case 1:
+                    common.animation.ImageFromRight("#image", "500px", function () { });
+                    break;
+
             }
         }
 
@@ -75,12 +90,12 @@
 
 </head>
 
-<body style="text-align:center; background-color:white;" onclick="clicked();">
+<body style="text-align:center; height:100%; width:100%;" onclick="clicked();">
 
     <pre><label id="lblReadText" style="font-size:120px;" ></label></pre>
 
 
-    <img id="image" style="margin-top:75px; height:350px;" />
+    <img id="image" style="top:200px; height:70px; position:absolute;" />
 
     
 </body>

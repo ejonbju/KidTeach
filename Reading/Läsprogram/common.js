@@ -44,9 +44,37 @@
 
     animation : {
 
+        ImageFromLeft : function(imageId,leftDestination, aniationCompleteFunction)
+        {
+            $(imageId).css("left", "0");
+            $(imageId).css("visibility", "visible");
+            $(imageId).animate({ left: leftDestination }, 1000, "", aniationCompleteFunction);
+        },
+
+        ImageFromRight: function (imageId, leftDestination, aniationCompleteFunction) {
+            $(imageId).css("left", "1000px");
+            $(imageId).css("visibility", "visible");
+            $(imageId).animate({ left: leftDestination }, 1000, "", aniationCompleteFunction);
+        },
+
+
         JippiImageFromLeft : function (aniationCompleteFunction)
         {
+            common.animation.ImageFromLeft("#jippi_bild","600px",
+
+                function () {
+                    setTimeout(function () {
+                  //  $("#jippi_bild").css("left", "0");
+                    $("#jippi_bild").css("visibility", "hidden"); 
+
+                    aniationCompleteFunction();
+
+                }, 1000);
+            })
+
+            /*
             $("#jippi_bild").css("visibility", "visible");
+
             $("#jippi_bild").animate({ left: "600px" }, 2000, "", function () {
                 setTimeout(function () {
                         $("#jippi_bild").css("visibility", "hidden"); $("#jippi_bild").css("left", "0");
@@ -54,7 +82,7 @@
                     aniationCompleteFunction();
 
                 }, 1000);
-            });
+            });*/
         },
 
         JippiImageJump : function (aniationCompleteFunction)

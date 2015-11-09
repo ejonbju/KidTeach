@@ -18,6 +18,12 @@ $RECYCLE.BIN/
 *.jpg
 *.png
 
+# Bin/Obj
+bin/
+obj/
+bin\
+obj\
+
 # Windows shortcuts
 *.lnk
 
