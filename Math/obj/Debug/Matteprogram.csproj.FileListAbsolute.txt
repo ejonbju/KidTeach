@@ -4,3 +4,9 @@ C:\Users\emmel_000\Documents\Lärande\Matteprogram\Matteprogram\bin\Matteprogram
 C:\Users\emmel_000\Documents\Lärande\Matteprogram\Matteprogram\obj\Debug\Matteprogram.csprojResolveAssemblyReference.cache
 C:\Users\emmel_000\Documents\Lärande\Matteprogram\Matteprogram\obj\Debug\Matteprogram.dll
 C:\Users\emmel_000\Documents\Lärande\Matteprogram\Matteprogram\obj\Debug\Matteprogram.pdb
+C:\Users\emmel_000\Documents\GitHub\KidTeach\Math\bin\Matteprogram.dll.config
+C:\Users\emmel_000\Documents\GitHub\KidTeach\Math\bin\Matteprogram.dll
+C:\Users\emmel_000\Documents\GitHub\KidTeach\Math\bin\Matteprogram.pdb
+C:\Users\emmel_000\Documents\GitHub\KidTeach\Math\obj\Debug\Matteprogram.csprojResolveAssemblyReference.cache
+C:\Users\emmel_000\Documents\GitHub\KidTeach\Math\obj\Debug\Matteprogram.dll
+C:\Users\emmel_000\Documents\GitHub\KidTeach\Math\obj\Debug\Matteprogram.pdb

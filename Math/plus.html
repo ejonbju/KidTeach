@@ -19,7 +19,7 @@
                 var jippiImage = common.getRandomImageFromList(jsonData.jippi_images);
 
                 tal1 = parseInt(common.getRandom(1,3));
-                tal2 = parseInt(common.getRandom(1, 1));
+                tal2 = parseInt(common.getRandom(1, 2));
                 
                 setTermNumber("#term1", selectedImage, tal1);
                 setTermNumber("#term2", selectedImage, tal2);
@@ -49,6 +49,16 @@
         }
 
         
+        function animateMouseOver(image)
+        {
+            $(image).css("background-color", "green");
+        }
+
+        function animateMouseOut(image)
+        {
+            $(image).css("background-color", "#001199");
+        }
+
 
         function animateTerms()
         {
@@ -141,12 +151,12 @@
         <tr>
             <td>
                     <div id="svarsalternativ" style=" float:left; text-orientation:sideways;margin-left:250px;  margin-top:260px;">
-                    <div class="answer" onclick=answer(1)>1</div>
-                    <div class="answer" onclick=answer(2)>2</div>
-                    <div class="answer" onclick=answer(3)>3</div>
-                    <div class="answer" onclick=answer(4)>4</div>
-                    <div class="answer" onclick=answer(5)>5</div>
-                    <div class="answer" onclick=answer(6)>6</div>
+                        <div id="oneDiv" class="answer" onclick=answer(1) onmouseover=animateMouseOver(this) onmouseout=animateMouseOut(this)>1</div>
+                        <div id="twoDiv" class="answer" onclick=answer(2) onmouseover=animateMouseOver(this) onmouseout=animateMouseOut(this)>2</div>
+                        <div id="threeDiv" class="answer" onclick=answer(3) onmouseover=animateMouseOver(this) onmouseout=animateMouseOut(this)>3</div>
+                        <div id="fourDiv" class="answer" onclick=answer(4) onmouseover=animateMouseOver(this) onmouseout=animateMouseOut(this)>4</div>
+                        <div id="fiveDiv" class="answer" onclick=answer(5) onmouseover=animateMouseOver(this) onmouseout=animateMouseOut(this)>5</div>
+                        <div id="sizDiv" class="answer" onclick=answer(6) onmouseover=animateMouseOver(this) onmouseout=animateMouseOut(this)>6</div>
                 </div>
 
 

@@ -16,7 +16,7 @@
 
         function clicked()
         {
-            switch( state)
+            switch(state)
             {
                 case stateEnum.IMAGE_HIDDEN:
                     state = stateEnum.IMAGE_VISIBLE;
@@ -31,16 +31,22 @@
 
         function animate()
         {
-            var i = common.getRandom(2);
+            var i = common.getRandom(4);
 
-            switch (i) {
+            switch (i)
+            {
                 case 0:
                     common.animation.ImageFromLeft("#image", "500px", function () { });
                     break;
                 case 1:
                     common.animation.ImageFromRight("#image", "500px", function () { });
                     break;
-
+                case 2:
+                    common.animation.ImageFromBottom("#image", "200px", function () { });
+                    break;
+                case 3:
+                    common.animation.ImageFromTop("#image", "200px", function () { });
+                    break;
             }
         }
 
@@ -95,7 +101,7 @@
     <pre><label id="lblReadText" style="font-size:120px;" ></label></pre>
 
 
-    <img id="image" style="top:200px; height:70px; position:absolute;" />
+    <img id="image" style="top:200px; height:140px; position:absolute;" />
 
     
 </body>

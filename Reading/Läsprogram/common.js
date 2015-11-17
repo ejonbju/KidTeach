@@ -57,6 +57,17 @@
             $(imageId).animate({ left: leftDestination }, 1000, "", aniationCompleteFunction);
         },
 
+        ImageFromBottom: function (imageId, topDestination, aniationCompleteFunction) {
+            $(imageId).css("top", "500px");
+            $(imageId).css("visibility", "visible");
+            $(imageId).animate({ top: topDestination }, 1000, "", aniationCompleteFunction);
+        },
+
+        ImageFromTop: function (imageId, topDestination, aniationCompleteFunction) {
+            $(imageId).css("top", "0px");
+            $(imageId).css("visibility", "visible");
+            $(imageId).animate({ top: topDestination }, 1000, "", aniationCompleteFunction);
+        },
 
         JippiImageFromLeft : function (aniationCompleteFunction)
         {
