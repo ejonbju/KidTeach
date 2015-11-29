@@ -18,8 +18,8 @@
                 var selectedImage = common.getRandomImageFromList(jsonData.images);
                 var jippiImage = common.getRandomImageFromList(jsonData.jippi_images);
 
-                tal1 = parseInt(common.getRandom(1,3));
-                tal2 = parseInt(common.getRandom(1, 2));
+                tal1 = parseInt(common.getRandom(1,4));
+                tal2 = parseInt(common.getRandom(1, 5));
                 
                 setTermNumber("#term1", selectedImage, tal1);
                 setTermNumber("#term2", selectedImage, tal2);
@@ -66,24 +66,39 @@
             $("#term1").css("left", "0px");
             $("#term2").css("visibility", "hidden").css("left", "1100px");
 
-            animateTerm1Jump(1, animateTerm2);
+            animateTerm1Jump(1,getNumberOfTerm1Jumps(tal1), animateTerm2);
         }
 
         function animateTerm2()
         {
             $("#term2").css("visibility", "visible");
-            animateTerm2Jump(1);
+            animateTerm2Jump(1,5);
         }
        
-        function animateTerm1Jump(jumpIndex, animationDoneFunction)
+        function getNumberOfTerm1Jumps(tal)
         {
-            if (jumpIndex < 5)
+            if (tal >= 5)
+            {
+                return 2;
+            }
+            if ( tal >= 4)
+            {
+                return 3;
+            }
+            else {
+                return 5;
+            }
+        }
+
+        function animateTerm1Jump(jumpIndex,maxJumpIndex, animationDoneFunction)
+        {
+            if (jumpIndex < maxJumpIndex)
             {
                 var leftTargetTop = ((jumpIndex * 75)-75/2) + "px";
                 var leftTargetLand = ((jumpIndex * 75)) + "px";
 
                 $("#term1").animate({ left: leftTargetTop, top: "0px" }, 150).animate({ left: leftTargetLand, top: "20px" }, 150, "", function () {
-                    animateTerm1Jump(jumpIndex + 1, animationDoneFunction);
+                    animateTerm1Jump(jumpIndex + 1,maxJumpIndex, animationDoneFunction);
                 });
 
             } else
@@ -94,14 +109,14 @@
 
         
 
-        function animateTerm2Jump(jumpIndex) {
+        function animateTerm2Jump(jumpIndex, maxJumpIndex) {
 
-            if (jumpIndex < 5) {
+            if (jumpIndex < maxJumpIndex) {
                 var leftTargetTop = 1000-((jumpIndex * 75) - 75/2) + "px";
                 var leftTargetLand = 1000-((jumpIndex * 75)) + "px";
 
                 $("#term2").animate({ left: leftTargetTop, top: "0px" }, 150).animate({ left: leftTargetLand, top: "20px" }, 150, "", function () {
-                    animateTerm2Jump(jumpIndex + 1);
+                    animateTerm2Jump(jumpIndex + 1, maxJumpIndex);
                 });
             } 
         }
@@ -157,7 +172,10 @@
                         <div id="fourDiv" class="answer" onclick=answer(4) onmouseover=animateMouseOver(this) onmouseout=animateMouseOut(this)>4</div>
                         <div id="fiveDiv" class="answer" onclick=answer(5) onmouseover=animateMouseOver(this) onmouseout=animateMouseOut(this)>5</div>
                         <div id="sizDiv" class="answer" onclick=answer(6) onmouseover=animateMouseOver(this) onmouseout=animateMouseOut(this)>6</div>
-                </div>
+                        <div id="sevenDiv" class="answer" onclick=answer(7) onmouseover=animateMouseOver(this) onmouseout=animateMouseOut(this)>7</div>
+                        <div id="eightDiv" class="answer" onclick=answer(8) onmouseover=animateMouseOver(this) onmouseout=animateMouseOut(this)>8</div>
+                        <div id="nineDiv" class="answer" onclick=answer(9) onmouseover=animateMouseOver(this) onmouseout=animateMouseOut(this)>9</div>
+                    </div>
 
 
             </td>
